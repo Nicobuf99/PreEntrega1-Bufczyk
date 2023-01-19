@@ -3,67 +3,108 @@
 
 let nombre = prompt("Ingresa tu nombre")
 alert("Bienvenido/a " + nombre)
+//Regristramos con arrays la variedad de productos
 
-//Peso del cliente para recomendacion de raqueta
+const raqueta = [
+    {id: 01, modelo: "Babolat Pure Strike", precio: 80000}, 
+    {id: 02, modelo: "Babolat Pure Drive", precio: 75000},
+    {id: 03, modelo: "Yonex VCORE", precio: 85000}, 
+    {id: 04, modelo: "Wilson Pro Staff", precio: 95000}, 
+    {id: 05, modelo: "Head Radical", precio: 82000}, 
+]
 
-let pesoPersona = parseInt(prompt("Ingresa tu peso en kilogramos para recibir una recomendación"))
+const rolloDeCuerda = [
+    {id: 06, modelo: "Kirschbaum Pro Line 2", precio: 20000},
+    {id: 07, modelo: "Kirschbaum Super Smash", precio: 17000},
+    {id: 08, modelo: "Babolat Rpm Blast", precio: 25000},
+]
 
-if (pesoPersona < 65) {
-    alert(nombre + " ,te recomendamos una raqueta de peso liviano")
-}
+const rolloDeCubregrip = [
+    {id: 09, modelo: "Wilson Por Overgrip", precio: 30000},
+    {id: 10, modelo: "Tourna Pro", precio: 22000},
+    {id: 11, modelo: "Babolat Pro Tour Overgrip", precio: 25000},
+];
 
-else if (pesoPersona > 65 && pesoPersona <= 85) {
-    alert(nombre + " ,te recomendamos una raqueta de peso mediano")
-}
+//Con una funcion de orden superior muestro los precios en consola + IVA de todos los productos
 
+const todosLosProductos = raqueta.concat(rolloDeCuerda,rolloDeCubregrip);
 
-else {
-    alert(nombre + " ,te recomendamos una raqueta pesada")
-};
-
-//Le avisamos al cliente que hay stock disponible
-
-function bucle(){
-    
-    for (let index = 0; index < 5; index++) {
-        if(index= 0){
-            return "No hay raquetas en stock"
-        }
-        else{
-           return "Hay stock de raquetas"
-        }
-        
+const todosLosProductosMasIva = todosLosProductos.map((element)=>{
+    return{
+        id: element.id,
+        modelo: element.modelo, 
+        precio: element.precio * 1.21,
     }
+})
+
+console.log(todosLosProductosMasIva)
+
+
+//Le preguntamos al cliente que esta buscando
+
+for (i= 0; i < 5; i++) {
+
+    let pregunta = prompt("Que producto estas buscando? Raqueta/s, Rollo de cuerda o cubregrip?").toLowerCase();
+
+    if (pregunta === "raquetas" || pregunta === "raqueta") {
+        raqueta.forEach(element => {
+            console.log(element)
+            alert("Tenemos " + element.modelo + " en stock y tiene un precio de $ " + element.precio + " sin IVA")
+        });
+        break;
+    } 
+    
+    else if (pregunta === "rollo de cuerda" || pregunta === "rollo de cuerdas") {
+        rolloDeCuerda.forEach(element => {
+            console.log(element)
+            alert("Tenemos " + element.modelo + " en stock y tiene un precio de $ " + element.precio + " sin IVA")
+        });
+        break;
+    }
+    
+    else if (pregunta === "cubregrip" || pregunta === "cubregrips") {
+        rolloDeCubregrip.forEach(element => {
+            console.log(element)
+            alert("Tenemos " + element.modelo + " en stock y tiene un precio de $ " + element.precio + " sin IVA")
+        });
+        break;
+    }
+
+    else {
+        alert("No ingresaste un producto válido, por favor escriba correctamente el producto que desea");
+    }
+    ;
+
 }
 
-alert(bucle())
-
-//Precios de raquetas con IVA, pagando en efectivo o tarjeta
-
-const sumaRaquetas = (raqLiv = 0, raqMed = 0, raqPes = 0) => raqLiv + raqMed + raqPes
+//Pido al cliente que pase el precio de los productos que desea llevar para luego calcular el valor final con tarjeta o efectivo
 
 
-let raqLiv = Number(prompt("Ingresa precio de la raqueta liviana"))
-let raqMed = Number(prompt("Ingresa precio de la raqueta mediana"))
-let raqPes = Number(prompt("Ingresa el precio de la raqueta pesada"))
+const sumaProductos = (raque = 0, cuerdas = 0, cubres = 0) => raque + cuerdas + cubres
 
-let raquetasSinIva = sumaRaquetas(raqLiv, raqMed, raqPes)
 
-alert("El precio bruto de las raquetas es de " + raquetasSinIva + " pesos");
+let raque = Number(prompt("Ingresa precio de la raqueta que queres"))
+let cuerdas = Number(prompt("Ingresa precio del rollo de cuerdas que queres"))
+let cubres = Number(prompt("Ingresa el precio los cubregrips que queres"))
 
-let raquetasConIva = raquetasSinIva * 1.21
+let productosSinIva = sumaProductos(raque, cuerdas, cubres)
 
-alert("El valor de las raquetas + IVA es igual a " + raquetasConIva + " pesos abonando con tarjeta");
+alert("El precio bruto de los productos que desea llevar es de $ " + productosSinIva + " .");
+
+let productosConIva = productosSinIva * 1.21
+
+alert("El valor de los productos + IVA es igual a $ " + productosConIva + " abonando con tarjeta");
 
 //Funcion descuento
 
-let descuento = raquetasSinIva * 0.1
+let descuento = productosSinIva * 0.1
 
-function descuentoPrecio (raquetasConIva, descuento) {
+function descuentoPrecio (productosConIva, descuento) {
 
-    return raquetasConIva - descuento 
+    return productosConIva - descuento 
 }
 
-alert("El precio pagando en efectivo es de " + descuentoPrecio(raquetasConIva, descuento) + " pesos")
+alert("El precio final pagando en efectivo es de $ " + descuentoPrecio(productosConIva,descuento) + " .")
+;
 
 
