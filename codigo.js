@@ -25,7 +25,7 @@ const rolloDeCubregrip = [
     {id: 11, modelo: "Babolat Pro Tour Overgrip", precio: 25000},
 ];
 
-//Con una funcion de orden superior muestro los precios en consola + IVA de todos los productos
+//Con una funcion de orden superior muestro los precios en consola + IVA de todos los productos en un array concatenado
 
 const todosLosProductos = raqueta.concat(rolloDeCuerda,rolloDeCubregrip);
 
@@ -37,8 +37,17 @@ const todosLosProductosMasIva = todosLosProductos.map((element)=>{
     }
 })
 
-console.log(todosLosProductosMasIva)
+console.log(todosLosProductosMasIva);
 
+//Muestro en consola precio de las raquetas segun presupuesto de $80000 con una funcion que recorre el array de raquetas
+
+function precioMenorQue(element) {
+    return element.precio <= 80000;
+  }
+let menorPrecio = raqueta.filter(precioMenorQue);
+
+console.log(menorPrecio);
+ 
 
 //Le preguntamos al cliente que esta buscando
 
