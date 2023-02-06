@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "categoria":"Raqueta",
+    "modelo": "Babolat Pure Strike",
+    "precio": 80000,
+    "imagen": "./imagenes/purestrike.webp"
+  },
+  {
+    "id": 2,
+    "categoria":"Raqueta",
+    "modelo": "Babolat Pure Drive",
+    "precio": 75000
+  },
+  {
+    "id": 3,
+    "categoria":"Raqueta",
+    "modelo": "Yonex VCORE",
+    "precio": 85000
+  },
+  {
+    "id": 4,
+    "categoria":"Raqueta",
+    "modelo": "Wilson Pro Staff",
+    "precio": 95000
+  },
+  {
+    "id": 5,
+    "categoria":"Raqueta",
+    "modelo": "Head Radical",
+    "precio": 82000
+  },
+  {
+    "id": 6,
+    "categoria":"Raqueta",
+    "modelo": "Wilson Blade",
+    "precio": 90000
+  },
+
+  {
+    "id": 7,
+    "categoria":"Strings",
+    "modelo": "Kirschbaum Pro Line 2",
+    "precio": 20000
+  },
+  {
+    "id": 8,
+    "categoria":"Strings",
+    "modelo": "Kirschbaum Super Smash",
+    "precio": 17000
+  },
+  {
+    "id": 9,
+    "categoria":"Strings",
+    "modelo": "Babolat Rpm Blast",
+    "precio": 25000
+  },
+
+  {
+    "id": 10,
+    "categoria":"Cubregrips",
+    "modelo": "Wilson Pro Overgrip",
+    "precio": 30000
+  },
+  {
+    "id": 11,
+    "categoria":"Cubregrips",
+    "modelo": "Tourna Pro",
+    "precio": 22000
+  },
+  {
+    "id": 12,
+    "categoria":"Cubregrips",
+    "modelo": "Babolat Pro Tour Overgrip",
+    "precio": 25000
+  }
+]
